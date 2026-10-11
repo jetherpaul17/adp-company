@@ -1,0 +1,6 @@
+{
+  "name": "ADP Toiture SA - Travaux de toiture à Genève",
+  "description": "Ferblanterie, couverture et étanchéité à Genève et ses alentours. Un savoir-faire au service des particuliers et des professionnels.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
