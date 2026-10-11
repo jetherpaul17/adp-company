@@ -1,18 +1,11 @@
 import React from 'react';
 import { X, MapPin, Calendar, Building, CheckCircle2, ArrowRight } from 'lucide-react';
-import { ProjectItem } from './ProjectsSection.tsx';
 
-interface ProjectModalProps {
-  project: ProjectItem | null;
-  onClose: () => void;
-  onRequestQuote: () => void;
-}
-
-export const ProjectModal: React.FC<ProjectModalProps> = ({
+export function ProjectModal({
   project,
   onClose,
   onRequestQuote,
-}) => {
+}) {
   if (!project) return null;
 
   return (
@@ -105,4 +98,4 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       </div>
     </div>
   );
-};
+}

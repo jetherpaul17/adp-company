@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
 import { X, CheckCircle, ArrowRight, ShieldCheck, Clock, FileText, Phone, Copy, Check } from 'lucide-react';
 
-interface QuoteModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  defaultService?: string;
-}
-
-export const QuoteModal: React.FC<QuoteModalProps> = ({
+export function QuoteModal({
   isOpen,
   onClose,
   defaultService = 'couverture',
-}) => {
-  const [step, setStep] = useState<number>(1);
-  const [serviceType, setServiceType] = useState<string>(defaultService);
-  const [buildingType, setBuildingType] = useState<string>('maison');
-  const [timing, setTiming] = useState<string>('normal');
+}) {
+  const [step, setStep] = useState(1);
+  const [serviceType, setServiceType] = useState(defaultService);
+  const [buildingType, setBuildingType] = useState('maison');
+  const [timing, setTiming] = useState('normal');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,13 +18,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     commune: 'Genève',
     description: '',
   });
-  const [submitted, setSubmitted] = useState<boolean>(false);
-  const [quoteRef, setQuoteRef] = useState<string>('');
-  const [copied, setCopied] = useState<boolean>(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [quoteRef, setQuoteRef] = useState('');
+  const [copied, setCopied] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const randomRef = 'DEV-GE-' + Math.floor(10000 + Math.random() * 90000);
     setQuoteRef(randomRef);
@@ -79,7 +73,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
           </button>
         </div>
 
-        {/* Step Progress Bar (when not submitted) */}
+        {/* Step Progress Bar */}
         {!submitted && (
           <div className="bg-slate-100 h-1.5 w-full">
             <div
@@ -367,4 +361,4 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
       </div>
     </div>
   );
-};
+}

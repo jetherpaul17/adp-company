@@ -1,38 +1,38 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, ArrowRight } from 'lucide-react';
-import { Header } from './components/Header.tsx';
-import { Hero } from './components/Hero.tsx';
-import { ServicesSection, ServiceItem, servicesData } from './components/ServicesSection.tsx';
-import { CompanySection } from './components/CompanySection.tsx';
-import { ProjectsSection, ProjectItem, projectsData } from './components/ProjectsSection.tsx';
-import { TestimonialsSection } from './components/TestimonialsSection.tsx';
-import { TrustSection } from './components/TrustSection.tsx';
-import { Footer } from './components/Footer.tsx';
-import { QuoteModal } from './components/QuoteModal.tsx';
-import { ServiceModal } from './components/ServiceModal.tsx';
-import { ProjectModal } from './components/ProjectModal.tsx';
-import { AboutModal } from './components/AboutModal.tsx';
-import { ReviewsModal } from './components/ReviewsModal.tsx';
-import { LegalModal } from './components/LegalModal.tsx';
+import { Header } from './components/Header.jsx';
+import { Hero } from './components/Hero.jsx';
+import { ServicesSection, servicesData } from './components/ServicesSection.jsx';
+import { CompanySection } from './components/CompanySection.jsx';
+import { ProjectsSection, projectsData } from './components/ProjectsSection.jsx';
+import { TestimonialsSection } from './components/TestimonialsSection.jsx';
+import { TrustSection } from './components/TrustSection.jsx';
+import { Footer } from './components/Footer.jsx';
+import { QuoteModal } from './components/QuoteModal.jsx';
+import { ServiceModal } from './components/ServiceModal.jsx';
+import { ProjectModal } from './components/ProjectModal.jsx';
+import { AboutModal } from './components/AboutModal.jsx';
+import { ReviewsModal } from './components/ReviewsModal.jsx';
+import { LegalModal } from './components/LegalModal.jsx';
 
 export default function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedQuoteService, setSelectedQuoteService] = useState('couverture');
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [selectedService, setSelectedService] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isReviewsOpen, setIsReviewsOpen] = useState(false);
-  const [legalModalType, setLegalModalType] = useState<'mentions' | 'confidentialite' | null>(null);
+  const [legalModalType, setLegalModalType] = useState(null);
   const [activeSection, setActiveSection] = useState('accueil');
 
   // Any modal open
   const isAnyModalOpen =
     isQuoteOpen ||
-    !!selectedService ||
-    !!selectedProject ||
+    Boolean(selectedService) ||
+    Boolean(selectedProject) ||
     isAboutOpen ||
     isReviewsOpen ||
-    !!legalModalType;
+    Boolean(legalModalType);
 
   // Track active section based on scroll position
   useEffect(() => {
@@ -78,14 +78,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col selection:bg-[#E32636] selection:text-white">
-      {/* 1. Modern Header Navigation Bar */}
+      {/* 1. Header Navigation Bar */}
       <Header
         onOpenQuote={() => handleOpenQuote()}
         activeSection={activeSection}
       />
 
       <main className="flex-1">
-        {/* 2. Modern Hero Section */}
+        {/* 2. Hero Section */}
         <Hero
           onOpenQuote={() => handleOpenQuote()}
           onExploreServices={scrollToServices}
@@ -123,7 +123,7 @@ export default function App() {
         onOpenLegal={(type) => setLegalModalType(type)}
       />
 
-      {/* Floating Bottom Action Bar on Mobile (Under 15% Mobile Sticky Cap) */}
+      {/* Floating Bottom Action Bar on Mobile */}
       {!isAnyModalOpen && (
         <div className="fixed bottom-0 inset-x-0 sm:hidden z-30 p-2.5 bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-2xl">
           <div className="grid grid-cols-2 gap-2">

@@ -1,15 +1,7 @@
 import React from 'react';
 import { ArrowRight, Star, CheckCircle2 } from 'lucide-react';
 
-export interface TestimonialItem {
-  id: string;
-  quote: string;
-  author: string;
-  role: string;
-  rating: number;
-}
-
-export const testimonialsData: TestimonialItem[] = [
+export const testimonialsData = [
   {
     id: '1',
     quote: 'Travail soigné et équipe professionnelle. Notre toit est comme neuf !',
@@ -33,11 +25,7 @@ export const testimonialsData: TestimonialItem[] = [
   },
 ];
 
-interface TestimonialsSectionProps {
-  onOpenAllReviews: () => void;
-}
-
-export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpenAllReviews }) => {
+export function TestimonialsSection({ onOpenAllReviews }) {
   return (
     <section id="avis" className="py-20 lg:py-28 bg-[#121824] text-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -98,7 +86,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
                 </p>
               </div>
 
-              {/* Author & Role + subtle quote mark */}
+              {/* Author & Role */}
               <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center font-bold text-slate-800 text-sm">
@@ -114,7 +102,6 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
                   </div>
                 </div>
 
-                {/* Decorative quote glyph in bottom right */}
                 <span className="text-4xl font-serif text-slate-200 select-none leading-none -mb-2 font-bold">
                   ””
                 </span>
@@ -125,4 +112,4 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ onOpen
       </div>
     </section>
   );
-};
+}

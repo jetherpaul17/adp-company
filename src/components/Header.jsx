@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, ArrowRight, Menu, X, Shield, Clock, ChevronRight } from 'lucide-react';
-import { AdpLogo } from './AdpLogo.tsx';
+import { AdpLogo } from './AdpLogo.jsx';
 
-interface HeaderProps {
-  onOpenQuote: () => void;
-  activeSection?: string;
-}
-
-export const Header: React.FC<HeaderProps> = ({ onOpenQuote, activeSection = 'accueil' }) => {
+export function Header({ onOpenQuote, activeSection = 'accueil' }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -199,4 +194,4 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuote, activeSection = 'ac
       )}
     </header>
   );
-};
+}

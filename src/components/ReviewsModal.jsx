@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { X, Star, Plus, Check } from 'lucide-react';
-import { testimonialsData, TestimonialItem } from './TestimonialsSection.tsx';
+import { testimonialsData } from './TestimonialsSection.jsx';
 
-interface ReviewsModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const additionalReviews: TestimonialItem[] = [
+const additionalReviews = [
   ...testimonialsData,
   {
     id: '4',
@@ -32,8 +27,8 @@ const additionalReviews: TestimonialItem[] = [
   },
 ];
 
-export const ReviewsModal: React.FC<ReviewsModalProps> = ({ isOpen, onClose }) => {
-  const [reviews, setReviews] = useState<TestimonialItem[]>(additionalReviews);
+export function ReviewsModal({ isOpen, onClose }) {
+  const [reviews, setReviews] = useState(additionalReviews);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newAuthor, setNewAuthor] = useState('');
   const [newRole, setNewRole] = useState('');
@@ -43,10 +38,10 @@ export const ReviewsModal: React.FC<ReviewsModalProps> = ({ isOpen, onClose }) =
 
   if (!isOpen) return null;
 
-  const handleAddReview = (e: React.FormEvent) => {
+  const handleAddReview = (e) => {
     e.preventDefault();
     if (!newAuthor || !newQuote) return;
-    const added: TestimonialItem = {
+    const added = {
       id: Date.now().toString(),
       quote: newQuote,
       author: newAuthor,
@@ -220,4 +215,4 @@ export const ReviewsModal: React.FC<ReviewsModalProps> = ({ isOpen, onClose }) =
       </div>
     </div>
   );
-};
+}

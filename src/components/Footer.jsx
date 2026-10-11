@@ -1,13 +1,8 @@
 import React from 'react';
 import { Phone, Mail, MapPin, ArrowRight, ExternalLink, Clock } from 'lucide-react';
-import { AdpLogo } from './AdpLogo.tsx';
+import { AdpLogo } from './AdpLogo.jsx';
 
-interface FooterProps {
-  onOpenQuote: () => void;
-  onOpenLegal: (type: 'mentions' | 'confidentialite') => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenLegal }) => {
+export function Footer({ onOpenQuote, onOpenLegal }) {
   const navLinks = [
     { label: 'Accueil', href: '#accueil' },
     { label: 'Nos services', href: '#services' },
@@ -103,7 +98,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenLegal }) => {
           </div>
         </div>
 
-        {/* Hairline Divider & Bottom Bar */}
+        {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-300/80 flex flex-col sm:flex-row items-center justify-between text-[13px] text-slate-500 gap-4">
           <p>© 2024 ADP Toiture SA. Tous droits réservés.</p>
           <div className="flex items-center gap-4">
@@ -125,4 +120,4 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote, onOpenLegal }) => {
       </div>
     </footer>
   );
-};
+}

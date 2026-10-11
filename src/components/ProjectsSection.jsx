@@ -5,22 +5,7 @@ import photoCopper from '../assets/images/realisation_copper_cladding_1791717002
 import photoEtancheite from '../assets/images/service_etancheite_flat_1791716926438.jpg';
 import photoEntretien from '../assets/images/service_couverture_tiles_1791716885156.jpg';
 
-export interface ProjectItem {
-  id: string;
-  title: string;
-  location: string;
-  image: string;
-  category: string;
-  type: 'couverture' | 'ferblanterie' | 'etancheite' | 'entretien';
-  year: string;
-  details: {
-    client: string;
-    description: string;
-    scope: string[];
-  };
-}
-
-export const projectsData: ProjectItem[] = [
+export const projectsData = [
   {
     id: 'entretien',
     title: 'Entretien de toiture',
@@ -79,16 +64,8 @@ export const projectsData: ProjectItem[] = [
   }
 ];
 
-interface ProjectsSectionProps {
-  onSelectProject: (project: ProjectItem) => void;
-  onOpenAllProjects: () => void;
-}
-
-export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
-  onSelectProject,
-  onOpenAllProjects,
-}) => {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
+export function ProjectsSection({ onSelectProject, onOpenAllProjects }) {
+  const [activeFilter, setActiveFilter] = useState('all');
 
   const filteredProjects = activeFilter === 'all'
     ? projectsData
@@ -145,7 +122,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
           ))}
         </div>
 
-        {/* 4 Projects Grid with modern cards */}
+        {/* 4 Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
           {filteredProjects.map((project) => (
             <div
@@ -162,7 +139,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   referrerPolicy="no-referrer"
                 />
 
-                {/* Subtle scrim */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
                   <div className="opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-200 px-3.5 py-2 bg-white/95 rounded-xl shadow-lg text-xs font-bold text-slate-900 flex items-center gap-1.5">
                     <Eye className="w-3.5 h-3.5 text-[#E32636]" />
@@ -170,7 +146,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   </div>
                 </div>
 
-                {/* Pill badges */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5">
                   <span className="px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-[11px] font-semibold text-white">
                     {project.category}
@@ -201,4 +176,4 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       </div>
     </section>
   );
-};
+}

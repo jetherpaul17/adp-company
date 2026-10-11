@@ -1,11 +1,6 @@
 import React from 'react';
 
-interface AdpLogoProps {
-  className?: string;
-  size?: 'sm' | 'md' | 'lg';
-}
-
-export const AdpLogo: React.FC<AdpLogoProps> = ({ className = '', size = 'md' }) => {
+export function AdpLogo({ className = '', size = 'md' }) {
   const scale = size === 'sm' ? 0.8 : size === 'lg' ? 1.25 : 1;
   const width = 130 * scale;
   const height = 48 * scale;
@@ -21,7 +16,6 @@ export const AdpLogo: React.FC<AdpLogoProps> = ({ className = '', size = 'md' })
         className="overflow-visible"
         aria-label="ADP Toiture SA"
       >
-        {/* Main "adp" lettering with red curved roof arch over 'd' and 'p' */}
         {/* Letter 'a' */}
         <path
           d="M14 28C10.7 28 8 25.3 8 22C8 18.7 10.7 16 14 16C16.2 16 18.1 17.2 19.1 19V16.5H23V27.5H19.1V25C18.1 26.8 16.2 28 14 28ZM15.5 24.2C17.7 24.2 19.3 22.4 19.3 22C19.3 21.6 17.7 19.8 15.5 19.8C13.5 19.8 12 21 12 22C12 23 13.5 24.2 15.5 24.2Z"
@@ -40,7 +34,7 @@ export const AdpLogo: React.FC<AdpLogoProps> = ({ className = '', size = 'md' })
           fill="#111827"
         />
 
-        {/* Signature Red Roof Peak over the "dp" */}
+        {/* Signature Red Roof Peak */}
         <path
           d="M35 11.5L46 3.5L57 11.5"
           stroke="#E52E2E"
@@ -49,7 +43,7 @@ export const AdpLogo: React.FC<AdpLogoProps> = ({ className = '', size = 'md' })
           strokeLinejoin="round"
         />
 
-        {/* Subtitle: TOITURE SA and DrC mark */}
+        {/* Subtitle: TOITURE SA and DrC */}
         <text
           x="7"
           y="38.5"
@@ -75,4 +69,4 @@ export const AdpLogo: React.FC<AdpLogoProps> = ({ className = '', size = 'md' })
       </svg>
     </div>
   );
-};
+}

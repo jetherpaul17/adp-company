@@ -2,13 +2,7 @@ import React from 'react';
 import { X, Users, Award, Wrench, Shield, ArrowRight } from 'lucide-react';
 import teamPhoto from '../assets/images/team_roofers_van_1791716941868.jpg';
 
-interface AboutModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onOpenQuote: () => void;
-}
-
-export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenQuote }) => {
+export function AboutModal({ isOpen, onClose, onOpenQuote }) {
   if (!isOpen) return null;
 
   return (
@@ -103,4 +97,4 @@ export const AboutModal: React.FC<AboutModalProps> = ({ isOpen, onClose, onOpenQ
       </div>
     </div>
   );
-};
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import { PartnerLogos } from './PartnerLogos.tsx';
+import { PartnerLogos } from './PartnerLogos.jsx';
 
-export const TrustSection: React.FC = () => {
+export function TrustSection() {
   return (
     <section className="py-14 sm:py-20 bg-white border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,4 +18,4 @@ export const TrustSection: React.FC = () => {
       </div>
     </section>
   );
-};
+}

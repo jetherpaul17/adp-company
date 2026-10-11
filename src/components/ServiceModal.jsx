@@ -1,18 +1,11 @@
 import React from 'react';
 import { X, Check, ArrowRight } from 'lucide-react';
-import { ServiceItem } from './ServicesSection.tsx';
 
-interface ServiceModalProps {
-  service: ServiceItem | null;
-  onClose: () => void;
-  onRequestQuoteForService: (serviceId: string) => void;
-}
-
-export const ServiceModal: React.FC<ServiceModalProps> = ({
+export function ServiceModal({
   service,
   onClose,
   onRequestQuoteForService,
-}) => {
+}) {
   if (!service) return null;
 
   return (
@@ -107,4 +100,4 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({
       </div>
     </div>
   );
-};
+}

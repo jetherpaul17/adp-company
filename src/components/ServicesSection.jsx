@@ -1,25 +1,11 @@
 import React from 'react';
-import { ArrowRight, Home, Waves, Droplet, Box, Sparkles } from 'lucide-react';
+import { ArrowRight, Home, Waves, Droplet, Box } from 'lucide-react';
 import serviceCouverture from '../assets/images/service_couverture_tiles_1791716885156.jpg';
 import serviceFerblanterie from '../assets/images/service_ferblanterie_zinc_1791716905213.jpg';
 import serviceEtancheite from '../assets/images/service_etancheite_flat_1791716926438.jpg';
 import serviceFabrication from '../assets/images/service_fabrication_workshop_1791716980709.jpg';
 
-export interface ServiceItem {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  icon: React.ReactNode;
-  tag: string;
-  details: {
-    summary: string;
-    points: string[];
-    materials: string[];
-  };
-}
-
-export const servicesData: ServiceItem[] = [
+export const servicesData = [
   {
     id: 'couverture',
     title: 'Couverture',
@@ -94,15 +80,7 @@ export const servicesData: ServiceItem[] = [
   }
 ];
 
-interface ServicesSectionProps {
-  onSelectService: (service: ServiceItem) => void;
-  onOpenAllServices: () => void;
-}
-
-export const ServicesSection: React.FC<ServicesSectionProps> = ({
-  onSelectService,
-  onOpenAllServices,
-}) => {
+export function ServicesSection({ onSelectService, onOpenAllServices }) {
   return (
     <section id="services" className="py-20 lg:py-28 bg-slate-50/60 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -132,7 +110,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           </button>
         </div>
 
-        {/* 4 Cards Grid with modern elevations */}
+        {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
           {servicesData.map((item) => (
             <div
@@ -149,15 +127,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   referrerPolicy="no-referrer"
                 />
 
-                {/* Subtle scrim for contrast */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
-                {/* Floating Red Icon Badge with micro-shadow */}
+                {/* Floating Red Icon Badge */}
                 <div className="absolute top-4 left-4 w-11 h-11 rounded-xl bg-[#E32636] flex items-center justify-center shadow-lg shadow-red-900/30 group-hover:scale-110 transition-transform">
                   {item.icon}
                 </div>
 
-                {/* Mini tag on image top right */}
                 <span className="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-black/50 backdrop-blur-md text-[11px] font-semibold text-white/95">
                   {item.tag}
                 </span>
@@ -174,7 +150,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   </p>
                 </div>
 
-                {/* Card Action Hint */}
                 <div className="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500 group-hover:text-[#E32636] transition-colors">
                   <span>En savoir plus</span>
                   <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
@@ -186,4 +161,4 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       </div>
     </section>
   );
-};
+}

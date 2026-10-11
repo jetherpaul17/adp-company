@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const PartnerLogos: React.FC = () => {
+export function PartnerLogos() {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 items-center">
       {/* 1. Implenia */}
@@ -102,4 +102,4 @@ export const PartnerLogos: React.FC = () => {
       </div>
     </div>
   );
-};
+}

@@ -1,12 +1,7 @@
 import React from 'react';
 import { X, ShieldCheck } from 'lucide-react';
 
-interface LegalModalProps {
-  type: 'mentions' | 'confidentialite' | null;
-  onClose: () => void;
-}
-
-export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
+export function LegalModal({ type, onClose }) {
   if (!type) return null;
 
   const isMentions = type === 'mentions';
@@ -100,4 +95,4 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
       </div>
     </div>
   );
-};
+}

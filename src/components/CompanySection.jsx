@@ -1,15 +1,11 @@
 import React from 'react';
-import { ArrowRight, Users, Wrench, ShieldCheck, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import teamPhoto from '../assets/images/team_roofers_van_1791716941868.jpg';
 
-interface CompanySectionProps {
-  onLearnMore: () => void;
-}
-
-export const CompanySection: React.FC<CompanySectionProps> = ({ onLearnMore }) => {
+export function CompanySection({ onLearnMore }) {
   return (
     <section id="entreprise" className="py-20 lg:py-32 bg-[#121824] text-white relative overflow-hidden">
-      {/* Subtle modern background glow */}
+      {/* Background glow */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -30,7 +26,7 @@ export const CompanySection: React.FC<CompanySectionProps> = ({ onLearnMore }) =
               <span className="block text-slate-100">un savoir-faire reconnu.</span>
             </h2>
 
-            {/* Paragraph matching exact original copy */}
+            {/* Paragraph */}
             <p className="text-[15px] sm:text-[17px] text-slate-300 leading-relaxed font-normal mb-8">
               Basés aux Acacias, aux Vives, à Genève, nous mettons notre expérience et notre savoir-faire au service de vos projets de toiture. Notre équipe de 7 à 8 collaborateurs intervient pour les particuliers, les entreprises et en collaboration avec les plus grands acteurs du secteur.
             </p>
@@ -63,7 +59,7 @@ export const CompanySection: React.FC<CompanySectionProps> = ({ onLearnMore }) =
             </div>
           </div>
 
-          {/* Right Column: High-fidelity Team & Van Photography */}
+          {/* Right Column: Photography */}
           <div className="lg:col-span-7">
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-700/80 bg-slate-900 group">
               <img
@@ -74,7 +70,6 @@ export const CompanySection: React.FC<CompanySectionProps> = ({ onLearnMore }) =
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/15 rounded-2xl sm:rounded-3xl pointer-events-none" />
 
-              {/* Floating Badge on Photo */}
               <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 px-4 py-2.5 rounded-xl bg-black/75 backdrop-blur-md border border-white/20 text-xs sm:text-sm text-white flex items-center gap-2 shadow-lg">
                 <MapPin className="w-4 h-4 text-[#E32636]" />
                 <span className="font-semibold">Atelier & Flotte aux Acacias, 1208 Genève</span>
@@ -85,4 +80,4 @@ export const CompanySection: React.FC<CompanySectionProps> = ({ onLearnMore }) =
       </div>
     </section>
   );
-};
+}

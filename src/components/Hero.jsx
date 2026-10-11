@@ -2,12 +2,7 @@ import React from 'react';
 import { ArrowRight, ShieldCheck, Clock, Award, MapPin } from 'lucide-react';
 import heroImage from '../assets/images/hero_roofer_geneva_1791716870572.jpg';
 
-interface HeroProps {
-  onOpenQuote: () => void;
-  onExploreServices: () => void;
-}
-
-export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreServices }) => {
+export function Hero({ onOpenQuote, onExploreServices }) {
   return (
     <section id="accueil" className="relative min-h-[580px] sm:min-h-[620px] lg:min-h-[680px] flex flex-col justify-between overflow-hidden">
       {/* Background Photography with fallback container */}
@@ -19,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreServices }) =>
           referrerPolicy="no-referrer"
         />
 
-        {/* Cinematic gradient overlay matching original screenshot with modern smooth ramp */}
+        {/* Cinematic gradient overlay matching original screenshot */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/75 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#121824]/90 via-transparent to-black/30" />
       </div>
@@ -27,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreServices }) =>
       {/* Main Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 lg:pt-28 pb-12 w-full my-auto">
         <div className="max-w-2xl lg:max-w-3xl">
-          {/* Red Kicker Line with modern pill touch */}
+          {/* Red Kicker Line */}
           <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 mb-5">
             <span className="w-2 h-2 rounded-full bg-[#E32636]" />
             <span className="text-[12px] sm:text-[13px] font-bold tracking-widest text-[#E32636] uppercase font-sans">
@@ -35,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreServices }) =>
             </span>
           </div>
 
-          {/* Bold White Headline with balance */}
+          {/* Bold White Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-[58px] font-extrabold text-white tracking-tight leading-[1.12] mb-5 sm:mb-6 text-balance">
             ADP Toiture SA
             <span className="block text-slate-100">pour vos travaux</span>
@@ -51,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreServices }) =>
             {' '}Un savoir-faire au service des particuliers et des professionnels.
           </p>
 
-          {/* CTA Buttons Pair with modern elevation */}
+          {/* CTA Buttons Pair */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
             <button
               onClick={onOpenQuote}
@@ -96,4 +91,4 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreServices }) =>
       </div>
     </section>
   );
-};
+}
